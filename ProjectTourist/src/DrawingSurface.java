@@ -25,7 +25,7 @@ public class DrawingSurface extends PApplet{
 		randAll.setLocalColorScheme(1);
 		searchBar = new GTextField(this, (float)450, (float)270, (float)466, (float)30);
 		searchBar.setFont(new Font("Sans_Serif", Font.PLAIN, 20));
-		searchBar.setPromptText("Type Your Destination");
+		searchBar.setPromptText("Enter an activity or interest, and a destination");
 	}
 	
 
