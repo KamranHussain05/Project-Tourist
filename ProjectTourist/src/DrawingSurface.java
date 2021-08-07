@@ -7,6 +7,8 @@ import processing.core.PImage;
 
 public class DrawingSurface extends PApplet{
 	
+	private String textBar;
+	
 	public DrawingSurface() {
 		
 	}
@@ -14,16 +16,19 @@ public class DrawingSurface extends PApplet{
 	public void setup() {
 		surface.setTitle("Project Tourist");
 		surface.setLocation(37, 55);
+		textBar = "Type a Location";
 	}
 	
 
 	public void draw() {
-		this.rect(200, 200, 540, 45, 50);
+		background(255, 165, 0);
+		this.rect(450, 270, 466, 55, 50);
+		this.image(loadImage("res/Logo.png"), 486, 100);
 		
 		pushStyle();
 		fill(0);
 		textSize(10);
-		text("Interactions- House Move: Arrow Keys, Person Move: WASD, \nHouse Scale: Left/Right Click, Sun move: comma and period", 120, 10);
+		text(textBar, 500, 300);
 		popStyle();
 	}
 
