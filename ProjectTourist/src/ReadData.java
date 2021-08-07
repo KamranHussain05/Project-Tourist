@@ -39,6 +39,7 @@ public class ReadData {
 	
 	
 	private String getFlightLink(String destination) {
+		return destination;
 		
 	}
 
