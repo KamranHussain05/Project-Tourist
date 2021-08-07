@@ -27,8 +27,8 @@ public class DrawingSurface extends PApplet{
 		
 		pushStyle();
 		fill(0);
-		textSize(10);
-		text(textBar, 500, 300);
+		textSize(20);
+		text(textBar, 480, 305);
 		popStyle();
 	}
 
