@@ -9,12 +9,12 @@ public class NaturalLanguageProcessing {
 	private String act2;
 	private String act3;
 	private String act4;
+	private String fLink;
 	
 	
 	public NaturalLanguageProcessing() {
 		
 	}
-	
 	
 	// Accessor methods for file writer and front end
 	public String getDestination() {
