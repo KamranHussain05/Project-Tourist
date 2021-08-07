@@ -12,10 +12,9 @@ public class ReadData {
 	public ReadData(HashMap<String,String> map) {
 		this.map = map;
 	}
-	public void readData(String filename, boolean[][] gameData) {
+	public void readData(String filename) {
 		try(FileWriter fw = new FileWriter("data.txt", true);
-			    BufferedWriter bw = new BufferedWriter(fw);
-			    PrintWriter out = new PrintWriter(bw))
+			    BufferedWriter bw = new BufferedWriter(fw);)
 			{
 			 for (Map.Entry<String, String> entry : map.entrySet()) {
   
