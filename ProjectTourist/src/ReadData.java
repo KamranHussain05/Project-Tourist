@@ -21,7 +21,7 @@ public class ReadData {
                 // put key and value separated by a colon
                 bw.write(entry.getKey() + ":"
                          + entry.getValue());
-  
+   
                 // new line
                 bw.newLine();
             }
