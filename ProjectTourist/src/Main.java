@@ -27,9 +27,7 @@ public class Main {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);
 		window.setIconImage(getIcon());
-
 		window.setVisible(true);
-		
 		
 		canvas.requestFocus();
 
