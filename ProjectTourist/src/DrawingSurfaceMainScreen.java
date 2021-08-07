@@ -119,5 +119,8 @@ public class DrawingSurfaceMainScreen extends Screen {
 		enter.setVisible(false);
 		searchBar.setVisible(false);
 	}
+	private String getSearchBarText() {
+		return searchBar.getText();
+	}
 
 }
