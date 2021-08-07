@@ -16,6 +16,13 @@ public class NaturalLanguageProcessing {
 		
 	}
 	
+	public String getFlightLink(String destination) {
+		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
+	    String searchTerm = "flights+to+" + destination;
+	    fLink = GOOGLE_SEARCH_URL +searchTerm;
+	    return fLink;
+	}
+	
 	// Accessor methods for file writer and front end
 	public String getDestination() {
 		String s = dest;
@@ -53,10 +60,4 @@ public class NaturalLanguageProcessing {
 		return results;
 	}
 	
-	private String getFlightLink(String destination) {
-		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
-	    String searchTerm = "flights+to+" + destination;
-	    String searchURL = GOOGLE_SEARCH_URL +searchTerm;
-	    return searchURL;
-	}
 }
