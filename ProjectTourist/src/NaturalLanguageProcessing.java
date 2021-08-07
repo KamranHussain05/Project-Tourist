@@ -43,13 +43,20 @@ public class NaturalLanguageProcessing {
 	}
 	
 	@SuppressWarnings("null")
-	public Dictionary<String, String> getProcessedData(String loc, String actOne, String actTwo, String actThree) {
+	public Dictionary<String, String> getProcessedData(String loc, String actOne, String actTwo, String actThree, String flightLink) {
 		Dictionary<String, String> results = null;
 		results.put("location", loc);
 		results.put("activityOne", actOne);
 		results.put("activityTwo", actTwo);
 		results.put("activityThree", getActivityThree());
-		
+		results.put("flightChoice", flightLink);
 		return results;
+	}
+	
+	private String getFlightLink(String destination) {
+		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
+	    String searchTerm = "flights+to+" + destination;
+	    String searchURL = GOOGLE_SEARCH_URL +searchTerm;
+	    return searchURL;
 	}
 }
