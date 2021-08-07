@@ -36,5 +36,10 @@ public class ReadData {
 			throw new IllegalArgumentException("Data file " + filename + " does not exist.");
 		}
 	}
+	
+	
+	private String getFlightLink(String destination) {
+		
+	}
 
 }
