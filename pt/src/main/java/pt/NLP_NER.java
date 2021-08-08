@@ -22,7 +22,7 @@ public class NLP_NER {
 			main();
 		} 
 		
-		if(userInput == "Random") {
+		if(userInput == "RANDOM DEST") {
 			randomLocation();
 		} else {
 			main();
@@ -87,8 +87,7 @@ public class NLP_NER {
 	  
 	  public static String getFlightLink(String destination) {
 			String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
-			destination.replace(" ", "");
-		    String searchTerm = "flights+to+" + destination;
+		    String searchTerm = "flights+to+" + destination.replace(" ", "");
 		    fLink = GOOGLE_SEARCH_URL +searchTerm;
 		    System.out.println(fLink);
 		    return fLink;
