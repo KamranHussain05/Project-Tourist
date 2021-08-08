@@ -13,7 +13,7 @@ public class NERPipelineDemo {
 	private String act2;
 	private String act3;
 	private String act4;
-	private String fLink;
+	private static String fLink;
 	private static Boolean isRunning = false;
 
   public static void main() {
@@ -21,35 +21,11 @@ public class NERPipelineDemo {
     // set up pipeline properties
     Properties props = new Properties();
     props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner");
-    // example customizations (these are commented out but you can uncomment them to see the results
-
-    // disable fine grained ner
-    // props.setProperty("ner.applyFineGrained", "false");
-
-    // customize fine grained ner
-    // props.setProperty("ner.fine.regexner.mapping", "example.rules");
-    // props.setProperty("ner.fine.regexner.ignorecase", "true");
-
-    // add additional rules, customize TokensRegexNER annotator
-    // props.setProperty("ner.additional.regexner.mapping", "example.rules");
-    // props.setProperty("ner.additional.regexner.ignorecase", "true");
-
-    // add 2 additional rules files ; set the first one to be case-insensitive
-    // props.setProperty("ner.additional.regexner.mapping", "ignorecase=true,example_one.rules;example_two.rules");
-
-    // set document date to be a specific date (other options are explained in the document date section)
-    // props.setProperty("ner.docdate.useFixedDate", "2019-01-01");
-
-    // only run rules based NER
-    // props.setProperty("ner.rulesOnly", "true");
-
-    // only run statistical NER
-    // props.setProperty("ner.statisticalOnly", "true");
 
     // set up pipeline
     StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
     // make an example document
-    CoreDocument doc = new CoreDocument("Mark Hamill films movies in Los Angeles, I would love to meet him there!");
+    CoreDocument doc = new CoreDocument(DrawingSurfaceMainScreen.getInput());
     // annotate the document
     pipeline.annotate(doc);
     // view results
@@ -60,6 +36,7 @@ public class NERPipelineDemo {
     	if (em.entityType() == "CITY" || em.entityType() == "LOCATION") {
     		dest = em.text();
     		System.out.println(dest);
+    		getFlightLink(dest);
     	}
     }
     System.out.println("---");
@@ -77,6 +54,13 @@ public class NERPipelineDemo {
   public static String getDestination() {
 		String s = dest;
 		return s;
-	}
+  }
+  
+  public static String getFlightLink(String destination) {
+		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
+	    String searchTerm = "flights+to+" + destination;
+	    fLink = GOOGLE_SEARCH_URL +searchTerm;
+	    return fLink;
+  }
 
 }

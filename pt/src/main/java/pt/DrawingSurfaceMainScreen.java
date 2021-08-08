@@ -7,9 +7,9 @@ import processing.core.PImage;
 
 public class DrawingSurfaceMainScreen extends Screen {
 	
-	private boolean randDestination;
+	private static boolean randDestination;
 	private boolean randActivities;
-	private GTextField searchBar;
+	private static GTextField searchBar;
 	private DrawingSurface s;
 	private PImage Logo;
 	
@@ -64,11 +64,11 @@ public class DrawingSurfaceMainScreen extends Screen {
 		return searchBar;
 	}
 	
-	public String getDestination() {
+	public static String getInput() {
 		if (!randDestination)
 			return searchBar.getText();
 		else 
-			return "RANDOM"; //Choose random destination if this method returns this
+			return "RANDOM DEST"; //Choose random destination if this method returns this
 	}
 	
 	public void moveOn() {

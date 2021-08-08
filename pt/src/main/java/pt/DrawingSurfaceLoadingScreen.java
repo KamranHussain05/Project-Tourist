@@ -35,7 +35,7 @@ public class DrawingSurfaceLoadingScreen extends Screen {
 	public void draw() {
 		TimerTask task = new Screen3(this);
 		Timer timer = new Timer();
-		timer.schedule(task, 4000);
+		timer.schedule(task, 40000);
 		
 		s.background(255, 255, 255);
 		s.image(loadingGif[s.frameCount%8], 283, 250);
