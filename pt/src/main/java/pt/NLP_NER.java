@@ -35,13 +35,23 @@ public class NLP_NER {
     System.out.println("entities found");
     for (CoreEntityMention em : doc.entityMentions()) {
     	System.out.println("\tdetected entity: \t"+em.text()+"\t"+em.entityType());
-    	if (em.entityType() == "CITY" || em.entity() == "STATE_OR_PROVINCE" || em.entity() == "COUNTRY") {
+    	if (em.entityType() == "CITY") {
     		dest = em.text();
     		System.out.println(dest);
     		getFlightLink(dest);
-    	} else {
-    		break;
-    	}
+    	} 
+    	
+    	if (em.entityType() == "COUNTRY") {
+    		dest = em.text();
+    		System.out.println(dest);
+    		getFlightLink(dest);
+    	} 
+    	
+    	if (em.entityType() == 	"STATE_OR_PROVINCE") {
+    		dest = em.text();
+    		System.out.println(dest);
+    		getFlightLink(dest);
+    	} 
     }
     System.out.println("---");
     System.out.println("tokens and ner tags");
