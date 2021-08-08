@@ -18,13 +18,10 @@ public class DrawingSurfaceEndScreen extends Screen {
 	public void draw() {
 		s.background(195, 225, 210);
 		s.image(s.loadImage("res/Logo.png"), 486, 100);
-
 		s.textSize(28);
 		s.text("Your Destination is Los Angeles", 470, 300);
 		s.textSize(24);
 		s.text("Activities: Hollywood, Universal Studios, Lakers Game", 365, 350);
-
-		
 	}
 
 }
