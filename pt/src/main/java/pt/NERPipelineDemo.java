@@ -14,8 +14,10 @@ public class NERPipelineDemo {
 	private String act3;
 	private String act4;
 	private String fLink;
+	private static Boolean isRunning = false;
 
-  public static void main(String[] args) {
+  public static void main() {
+	  isRunning = true;
     // set up pipeline properties
     Properties props = new Properties();
     props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner");
@@ -56,7 +58,7 @@ public class NERPipelineDemo {
     for (CoreEntityMention em : doc.entityMentions()) {
     	System.out.println("\tdetected entity: \t"+em.text()+"\t"+em.entityType());
     	if (em.entityType() == "CITY" || em.entityType() == "LOCATION") {
-    		dest = doc.entityMentions().toString();
+    		dest = em.text();
     		System.out.println(dest);
     	}
     }
@@ -65,6 +67,16 @@ public class NERPipelineDemo {
     String tokensAndNERTags = doc.tokens().stream().map(token -> "("+token.word()+","+token.ner()+")").collect(
         Collectors.joining(" "));
     System.out.println(tokensAndNERTags);
+    isRunning = false;
   }
+  
+  public static Boolean isNLPRunning() {
+	  return isRunning;
+  }
+  
+  public static String getDestination() {
+		String s = dest;
+		return s;
+	}
 
 }

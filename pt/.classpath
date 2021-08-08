@@ -29,5 +29,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="/ProjectTourist/lib/processing_core.jar"/>
+	<classpathentry kind="lib" path="/ProjectTourist/lib/G4P.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
