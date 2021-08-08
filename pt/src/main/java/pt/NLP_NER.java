@@ -16,26 +16,31 @@ public class NLP_NER {
 	private static Boolean isRunning = true;
 
   public static void main() {
-	  isRunning = true;
+	isRunning = true;
+	System.out.println("Inside NLP Class");
     // set up pipeline properties
     Properties props = new Properties();
     props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner");
-
+    System.out.println("Before setting up pipeline");
     // set up pipeline
     StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
     // make an example document
     CoreDocument doc = new CoreDocument(DrawingSurfaceMainScreen.getInput());
+    System.out.println("Anazlying");
     // annotate the document
     pipeline.annotate(doc);
+    System.out.println("Writing");
     // view results
     System.out.println("---");
     System.out.println("entities found");
     for (CoreEntityMention em : doc.entityMentions()) {
     	System.out.println("\tdetected entity: \t"+em.text()+"\t"+em.entityType());
-    	if (em.entityType() == "CITY" || em.entityType() == "LOCATION") {
+    	if (em.entityType() == "CITY" || em.entity() == "STATE_OR_PROVINCE" || em.entity() == "COUNTRY") {
     		dest = em.text();
     		System.out.println(dest);
     		getFlightLink(dest);
+    	} else {
+    		break;
     	}
     }
     System.out.println("---");
