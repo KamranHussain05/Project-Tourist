@@ -1,6 +1,5 @@
 package pt;
 
-import edu.stanford.nlp.parser.lexparser.Item;
 import edu.stanford.nlp.pipeline.*;
 
 import java.util.Properties;
