@@ -6,7 +6,7 @@ import edu.stanford.nlp.pipeline.*;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-public class NERPipelineDemo {
+public class NLP_NER {
 	
 	private static String dest;
 	private String act1;

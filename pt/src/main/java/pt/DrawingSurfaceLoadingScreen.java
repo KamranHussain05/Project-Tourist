@@ -45,7 +45,7 @@ public class DrawingSurfaceLoadingScreen extends Screen {
 	}
 	
 	public void moveOn() {
-		if (NERPipelineDemo.isNLPRunning() == false) {
+		if (NLP_NER.isNLPRunning() == false) {
 			s.switchScreen(ScreenSwitcher.SCREEN3);
 		}
 	}

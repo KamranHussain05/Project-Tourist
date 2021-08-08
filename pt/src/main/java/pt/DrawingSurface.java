@@ -93,7 +93,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		}
 		if (button == enter && event == GEvent.CLICKED) {
 			main.getSearchBar().setFocus(false);
-			NERPipelineDemo.main();
+			NLP_NER.main();
 			main.moveOn();
 		}
 	}
