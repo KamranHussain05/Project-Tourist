@@ -27,7 +27,7 @@ public class DrawingSurfaceEndScreen extends Screen{
 		s.textSize(18);
 		s.text("Your city is Los Angeles", 200, 300);
 		s.textSize(14);
-		s.text("Activities: Hollywood, Universal Studios, Lakers Game", 150, 300);
+		s.text("Activities: Hollywood, Universal Studios, Lakers Game", 150, 350);
 		
 		
 	}
