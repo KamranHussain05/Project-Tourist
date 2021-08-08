@@ -6,12 +6,6 @@ import g4p_controls.GButton;
 import g4p_controls.GEvent;
 import processing.core.PApplet;
 
-/**
- * This class has all the different screens and switches between them
- * @author Harshith Pothula
- * @version 5/24
- *
- */
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 
 	private Screen activeScreen;
