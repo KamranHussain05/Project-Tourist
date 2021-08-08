@@ -1,24 +1,18 @@
-import java.awt.Font;
-import java.util.ArrayList;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 import g4p_controls.*;
-import processing.core.PApplet;
-import processing.core.PConstants;
 import processing.core.PImage;
-import processing.core.PSurface;
 
 
 public class DrawingSurfaceLoadingScreen extends Screen {
-	
-	private PSurface surface;
+
 	private DrawingSurface s;
 	private PImage[] loadingGif;
 	
 	public DrawingSurfaceLoadingScreen(DrawingSurface s) {
 		super(s.width, s.height);
-		surface = s.getSurface();
 		loadingGif = new PImage[8];
 		this.s = s;
 	}

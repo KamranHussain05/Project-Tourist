@@ -1,6 +1,4 @@
 import g4p_controls.G4P;
-import processing.core.PImage;
-import processing.core.PSurface;
 
 public class DrawingSurfaceEndScreen extends Screen {
 	

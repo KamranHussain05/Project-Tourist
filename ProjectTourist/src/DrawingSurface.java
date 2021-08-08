@@ -1,13 +1,10 @@
 
 
-import java.awt.Point;
 import java.util.ArrayList;
 
 import g4p_controls.GButton;
 import g4p_controls.GEvent;
 import processing.core.PApplet;
-import processing.core.PConstants;
-import processing.core.PImage;
 
 /**
  * This class has all the different screens and switches between them
