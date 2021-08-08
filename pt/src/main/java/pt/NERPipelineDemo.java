@@ -58,8 +58,10 @@ public class NERPipelineDemo {
   
   public static String getFlightLink(String destination) {
 		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
+		destination.replace(" ", "");
 	    String searchTerm = "flights+to+" + destination;
 	    fLink = GOOGLE_SEARCH_URL +searchTerm;
+	    System.out.println(fLink);
 	    return fLink;
   }
 
