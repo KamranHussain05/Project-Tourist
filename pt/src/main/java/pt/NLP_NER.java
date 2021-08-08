@@ -18,6 +18,8 @@ public class NLP_NER {
   public static void main() {
 	isRunning = true;
 	System.out.println("Inside NLP Class");
+	
+	String userInput = DrawingSurfaceMainScreen.getInput();
     // set up pipeline properties
     Properties props = new Properties();
     props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner");
@@ -25,7 +27,7 @@ public class NLP_NER {
     // set up pipeline
     StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
     // make an example document
-    CoreDocument doc = new CoreDocument(DrawingSurfaceMainScreen.getInput());
+    CoreDocument doc = new CoreDocument(userInput);
     System.out.println("Anazlying");
     // annotate the document
     pipeline.annotate(doc);
