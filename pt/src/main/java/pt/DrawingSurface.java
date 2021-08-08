@@ -17,6 +17,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public GButton randA;
 	public GButton randAll;
 	public GButton enter;
+	private String text;
 	
 	public DrawingSurface() {
 		
@@ -119,6 +120,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		if (key == ENTER || key == RETURN) { //Will exit search bar if ENTER or RETURN is pressed
 			main.getSearchBar().setFocus(false);
 			main.moveOn();
+			NLP_NER.main();
 		}
 	}
 	
@@ -128,6 +130,13 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 */
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
+	}
+	
+	public String getText() {
+		return text;
+	}
+	public void setText(String t) {
+		text = t;
 	}
 
 }

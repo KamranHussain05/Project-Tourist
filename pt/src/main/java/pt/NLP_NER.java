@@ -16,10 +16,14 @@ public class NLP_NER {
 	private static Boolean isRunning = true;
 
   public static void main() {
+	  String userInput;
 	isRunning = true;
 	System.out.println("Inside NLP Class");
-	
-	String userInput = DrawingSurfaceMainScreen.getInput();
+	if (DrawingSurfaceMainScreen.getMoveOn()) {
+		userInput = DrawingSurfaceMainScreen.getInput();
+	} else {
+		return;
+	}
     // set up pipeline properties
     Properties props = new Properties();
     props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner");
