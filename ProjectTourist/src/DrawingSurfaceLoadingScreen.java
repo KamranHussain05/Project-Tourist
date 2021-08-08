@@ -1,5 +1,7 @@
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import g4p_controls.*;
 import processing.core.PApplet;
@@ -13,7 +15,6 @@ public class DrawingSurfaceLoadingScreen extends Screen {
 	private PSurface surface;
 	private DrawingSurface s;
 	private PImage[] loadingGif;
-	private boolean moveOn;
 	
 	public DrawingSurfaceLoadingScreen(DrawingSurface s) {
 		super(s.width, s.height);
@@ -24,7 +25,6 @@ public class DrawingSurfaceLoadingScreen extends Screen {
 	
 	public void setup() {
 		G4P.messagesEnabled(false);
-		moveOn = false;
 		loadingGif[0] = s.loadImage( "res/frame1.png" );
 		loadingGif[1] = s.loadImage( "res/frame2.png" );
 		loadingGif[2] = s.loadImage( "res/frame3.png" );
@@ -38,15 +38,15 @@ public class DrawingSurfaceLoadingScreen extends Screen {
 	
 
 	public void draw() {
+		TimerTask task = new Screen3(this);
+		Timer timer = new Timer();
+		timer.schedule(task, 4000);
 		s.background(255, 255, 255);
-		s.image(s.loadImage("res/Logo.png"), 486, 100);
-		s.image( loadingGif[s.frameCount%8], 270, 300 );
-		
-		
+		s.image(loadingGif[s.frameCount%8], 283, 250);
 	}
 	
 	public void moveOn() {
-		moveOn = true;
+		s.switchScreen(ScreenSwitcher.SCREEN3);
 	}
 
 }

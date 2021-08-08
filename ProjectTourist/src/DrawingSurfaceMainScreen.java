@@ -1,16 +1,12 @@
 import java.awt.Font;
-import java.util.ArrayList;
 
 import g4p_controls.*;
-import processing.core.PApplet;
-import processing.core.PConstants;
 import processing.core.PImage;
-import processing.core.PSurface;
 
 public class DrawingSurfaceMainScreen extends Screen {
 	
 	private boolean randDestination;
-	private boolean randExperience;
+	private boolean randActivities;
 	private GTextField searchBar;
 	private DrawingSurface s;
 	private PImage Logo;
@@ -23,7 +19,7 @@ public class DrawingSurfaceMainScreen extends Screen {
 	public void setup() {
 		G4P.messagesEnabled(false); //Removes suggestions in console
 		randDestination = false;
-		randExperience = false;
+		randActivities = false;
 		Logo = s.loadImage("res/Logo.png");
 		
 		searchBar = new GTextField(s, (float)400, (float)270, (float)466, (float)30);
@@ -35,12 +31,12 @@ public class DrawingSurfaceMainScreen extends Screen {
 	public void draw() {
 		s.background(195, 225, 210);
 		s.randD.setVisible(true);
-		s.randE.setVisible(true);
+		s.randA.setVisible(true);
 		s.randAll.setVisible(true);
 		searchBar.setVisible(true);
 		s.enter.setVisible(true);
 		s.randD.setEnabled(true);
-		s.randE.setEnabled(true);
+		s.randA.setEnabled(true);
 		s.randAll.setEnabled(true);
 		s.enter.setEnabled(true);
 		s.image(Logo, 486, 100);
@@ -51,23 +47,19 @@ public class DrawingSurfaceMainScreen extends Screen {
 	}
 	
 	public boolean getrandE() {
-		return randExperience;
+		return randActivities;
 	}
 	
 	public void setRandD(boolean b) {
 		randDestination = b;
 	}
 	
-	public void setRandE(boolean b) {
-		randExperience = b;
+	public void setRandA(boolean b) {
+		randActivities = b;
 	}
 	
 	public GTextField getSearchBar() {
 		return searchBar;
-	}
-	
-	private String getSearchBarText() {
-		return searchBar.getText();
 	}
 	
 	public String getDestination() {
@@ -80,12 +72,12 @@ public class DrawingSurfaceMainScreen extends Screen {
 	public void moveOn() {
 		s.switchScreen(ScreenSwitcher.SCREEN2);
 		s.randD.setEnabled(false);
-		s.randE.setEnabled(false);
+		s.randA.setEnabled(false);
 		s.randAll.setEnabled(false);
 		s.enter.setEnabled(false);
 		searchBar.setEnabled(false);
 		s.randD.setVisible(false);
-		s.randE.setVisible(false);
+		s.randA.setVisible(false);
 		s.randAll.setVisible(false);
 		s.enter.setVisible(false);
 		searchBar.setVisible(false);
