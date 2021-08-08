@@ -3,6 +3,8 @@
 import java.awt.Point;
 import java.util.ArrayList;
 
+import g4p_controls.GButton;
+import g4p_controls.GEvent;
 import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.core.PImage;
@@ -19,6 +21,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private ArrayList<Screen> screens;
 	private DrawingSurfaceMainScreen main;
 	private DrawingSurfaceLoadingScreen loading;
+	public GButton randD;
+	public GButton randE;
+	public GButton randAll;
+	public GButton enter;
 	
 	public DrawingSurface() {
 		
@@ -41,6 +47,26 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		surface.setResizable(true);
 		for (Screen s : screens)
 			s.setup();
+		
+		randD = new GButton(this, 85, 450, 342, 100, "Random Destination");
+		randD.setLocalColorScheme(1); // http://www.lagers.org.uk/g4p/guides/g04-colorschemes.html
+		randD.setEnabled(false);
+		randD.setVisible(false);
+		
+		randE = new GButton(this, 512, 450, 342, 100, "Random Experience");
+		randE.setLocalColorScheme(1);
+		randE.setEnabled(false);
+		randE.setVisible(false);
+		
+		randAll = new GButton(this, 939, 450, 342, 100, "Random Destination and Experience");
+		randAll.setLocalColorScheme(1);
+		randAll.setEnabled(false);
+		randAll.setVisible(false);
+		
+		enter = new GButton(this, 866, 270, 100, 30, "Click to continue or press Enter");
+		enter.setLocalColorScheme(1);
+		enter.setEnabled(false);
+		enter.setVisible(false);
 	}
 	
 	/**
@@ -52,6 +78,29 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		activeScreen.draw();
 		
 		popMatrix();
+	}
+	
+	public void handleButtonEvents(GButton button, GEvent event) {
+		System.out.println("Hello");
+		button.fireAllEvents(true);
+		
+		if (button == randD && event == GEvent.CLICKED) {
+			main.setRandD(true);
+			System.out.println("randD");
+		}
+		if (button == randE && event == GEvent.CLICKED) {
+			main.setRandE(true);
+			System.out.println("ranE");
+		}
+		if (button == randAll && event == GEvent.CLICKED) {
+			main.setRandD(true);
+			main.setRandE(true);
+			System.out.println("ranAll");
+		}
+		if (button == enter && event == GEvent.CLICKED) {
+			main.getSearchBar().setFocus(false);
+			main.moveOn();
+		}
 	}
 	
 	public void mousePressed() {

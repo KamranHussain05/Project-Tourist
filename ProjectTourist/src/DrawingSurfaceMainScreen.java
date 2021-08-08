@@ -11,20 +11,12 @@ public class DrawingSurfaceMainScreen extends Screen {
 	
 	private boolean randDestination;
 	private boolean randExperience;
-	private GButton randD;
-	private GButton randE;
-	private GButton randAll;
-	private GButton enter;
 	private GTextField searchBar;
-	private PSurface surface;
 	private DrawingSurface s;
-	private PImage logo;
-	private boolean moveOn;
-	private boolean isFocus;
+	private PImage Logo;
 	
 	public DrawingSurfaceMainScreen(DrawingSurface s) {
 		super(s.width, s.height);
-		surface = s.getSurface();
 		this.s = s;
 	}
 	
@@ -32,58 +24,26 @@ public class DrawingSurfaceMainScreen extends Screen {
 		G4P.messagesEnabled(false); //Removes suggestions in console
 		randDestination = false;
 		randExperience = false;
-		moveOn = false;
-		
-		randD = new GButton(s, 85, 450, 342, 100, "Random Destination");
-		randD.setLocalColorScheme(1); // http://www.lagers.org.uk/g4p/guides/g04-colorschemes.html
-		
-		randE = new GButton(s, 512, 450, 342, 100, "Random Experience");
-		randE.setLocalColorScheme(1);
-		
-		randAll = new GButton(s, 939, 450, 342, 100, "Random Destination and Experience");
-		randAll.setLocalColorScheme(1);
+		Logo = s.loadImage("res/Logo.png");
 		
 		searchBar = new GTextField(s, (float)400, (float)270, (float)466, (float)30);
 		searchBar.setFont(new Font("Sans_Serif", Font.PLAIN, 20));
 		searchBar.setPromptText("Enter an activity or interest, and a destination");
-		
-		enter = new GButton(s, 866, 270, 100, 30, "Click to continue or press Enter");
-		enter.setLocalColorScheme(1);
 	}
 	
 
 	public void draw() {
 		s.background(195, 225, 210);
-		randD.setVisible(true);
-		randE.setVisible(true);
-		randAll.setVisible(true);
+		s.randD.setVisible(true);
+		s.randE.setVisible(true);
+		s.randAll.setVisible(true);
 		searchBar.setVisible(true);
-		enter.setVisible(true);
-		s.image(s.loadImage("res/Logo.png"), 486, 100);
-	}
-	
-	public void handleButtonEvents(GButton button, GEvent event) {
-		System.out.println("Hello");
-		button.fireAllEvents(true);
-		
-		if (button == randD && event == GEvent.CLICKED) {
-		      randDestination = true;
-		      button.setVisible(false);
-		}
-		if (button == randE && event == GEvent.CLICKED) {
-		      randExperience = true;
-		      button.setVisible(false);
-		}
-		if (button == randAll && event == GEvent.CLICKED) {
-		      randDestination = true;
-		      randExperience = true;
-		      button.setVisible(false);
-		}
-		if (button == enter && event == GEvent.CLICKED) {
-			searchBar.setFocus(false);
-			button.setVisible(false);
-			moveOn();
-		}
+		s.enter.setVisible(true);
+		s.randD.setEnabled(true);
+		s.randE.setEnabled(true);
+		s.randAll.setEnabled(true);
+		s.enter.setEnabled(true);
+		s.image(Logo, 486, 100);
 	}
 	
 	public boolean getrandD() {
@@ -94,8 +54,20 @@ public class DrawingSurfaceMainScreen extends Screen {
 		return randExperience;
 	}
 	
+	public void setRandD(boolean b) {
+		randDestination = b;
+	}
+	
+	public void setRandE(boolean b) {
+		randExperience = b;
+	}
+	
 	public GTextField getSearchBar() {
 		return searchBar;
+	}
+	
+	private String getSearchBarText() {
+		return searchBar.getText();
 	}
 	
 	public String getDestination() {
@@ -106,24 +78,17 @@ public class DrawingSurfaceMainScreen extends Screen {
 	}
 	
 	public void moveOn() {
-		moveOn = true;
 		s.switchScreen(ScreenSwitcher.SCREEN2);
-		randD.setEnabled(false);
-		randE.setEnabled(false);
-		randAll.setEnabled(false);
-		enter.setEnabled(false);
+		s.randD.setEnabled(false);
+		s.randE.setEnabled(false);
+		s.randAll.setEnabled(false);
+		s.enter.setEnabled(false);
 		searchBar.setEnabled(false);
-		randD.setVisible(false);
-		randE.setVisible(false);
-		randAll.setVisible(false);
-		enter.setVisible(false);
+		s.randD.setVisible(false);
+		s.randE.setVisible(false);
+		s.randAll.setVisible(false);
+		s.enter.setVisible(false);
 		searchBar.setVisible(false);
-	}
-	
-	@SuppressWarnings("unused")
-	private String getSearchBarText() {
-		System.out.println("Got inside search bar return method");
-		return searchBar.getText();
 	}
 
 }

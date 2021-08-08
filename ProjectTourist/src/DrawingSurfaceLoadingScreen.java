@@ -33,7 +33,7 @@ public class DrawingSurfaceLoadingScreen extends Screen {
 		loadingGif[5] = s.loadImage( "res/frame6.png" );
 		loadingGif[6] = s.loadImage( "res/frame7.png" );
 		loadingGif[7] = s.loadImage( "res/frame8.png" );
-		s.frameRate(10);
+		s.frameRate(8);
 	}
 	
 
