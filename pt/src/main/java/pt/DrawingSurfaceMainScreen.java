@@ -72,6 +72,7 @@ public class DrawingSurfaceMainScreen extends Screen {
 	}
 	
 	public void moveOn() {
+		
 		s.switchScreen(ScreenSwitcher.SCREEN2);
 		s.randD.setEnabled(false);
 		s.randA.setEnabled(false);
@@ -83,6 +84,7 @@ public class DrawingSurfaceMainScreen extends Screen {
 		s.randAll.setVisible(false);
 		s.enter.setVisible(false);
 		searchBar.setVisible(false);
+		
 	}
 
 }

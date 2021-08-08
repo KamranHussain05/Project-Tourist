@@ -14,7 +14,7 @@ public class NLP_NER {
 	private String act3;
 	private String act4;
 	private static String fLink;
-	private static Boolean isRunning = false;
+	private static Boolean isRunning = true;
 
   public static void main() {
 	  isRunning = true;
