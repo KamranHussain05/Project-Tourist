@@ -18,7 +18,8 @@ public class NaturalLanguageProcessing {
 	
 	public String getFlightLink(String destination) {
 		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
-	    String searchTerm = "flights+to+" + destination;
+		String cool = destination.replace(' ', '+');
+	    String searchTerm = "flights+to+" + cool;
 	    fLink = GOOGLE_SEARCH_URL +searchTerm;
 	    return fLink;
 	}
