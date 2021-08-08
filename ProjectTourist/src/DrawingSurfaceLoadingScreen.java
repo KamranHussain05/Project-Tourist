@@ -37,6 +37,9 @@ public class DrawingSurfaceLoadingScreen extends Screen {
 		timer.schedule(task, 4000);
 		s.background(255, 255, 255);
 		s.image(loadingGif[s.frameCount%8], 283, 250);
+		s.textSize(40);
+		s.fill(195, 225, 210);
+		s.text("Gathering an Adventure...", 445, 400);
 	}
 	
 	public void moveOn() {
