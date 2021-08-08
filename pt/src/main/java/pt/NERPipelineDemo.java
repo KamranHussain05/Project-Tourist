@@ -1,11 +1,19 @@
 package pt;
 
+import edu.stanford.nlp.parser.lexparser.Item;
 import edu.stanford.nlp.pipeline.*;
 
 import java.util.Properties;
 import java.util.stream.Collectors;
 
 public class NERPipelineDemo {
+	
+	private static String dest;
+	private String act1;
+	private String act2;
+	private String act3;
+	private String act4;
+	private String fLink;
 
   public static void main(String[] args) {
     // set up pipeline properties
@@ -45,8 +53,13 @@ public class NERPipelineDemo {
     // view results
     System.out.println("---");
     System.out.println("entities found");
-    for (CoreEntityMention em : doc.entityMentions())
-      System.out.println("\tdetected entity: \t"+em.text()+"\t"+em.entityType());
+    for (CoreEntityMention em : doc.entityMentions()) {
+    	System.out.println("\tdetected entity: \t"+em.text()+"\t"+em.entityType());
+    	if (em.entityType() == "CITY" || em.entityType() == "LOCATION") {
+    		dest = doc.entityMentions().toString();
+    		System.out.println(dest);
+    	}
+    }
     System.out.println("---");
     System.out.println("tokens and ner tags");
     String tokensAndNERTags = doc.tokens().stream().map(token -> "("+token.word()+","+token.ner()+")").collect(
