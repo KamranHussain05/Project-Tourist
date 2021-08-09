@@ -10,8 +10,9 @@ public class DrawingSurfaceMainScreen extends Screen {
 	private static boolean randDestination;
 	private boolean randActivities;
 	private static GTextField searchBar;
-	private DrawingSurface s;
+	private static DrawingSurface s;
 	private PImage Logo;
+	private static boolean moveOn;
 	
 	public DrawingSurfaceMainScreen(DrawingSurface s) {
 		super(s.width, s.height);
@@ -19,6 +20,7 @@ public class DrawingSurfaceMainScreen extends Screen {
 	}
 	
 	public void setup() {
+		moveOn = false;
 		G4P.messagesEnabled(false); //Removes suggestions in console
 		randDestination = false;
 		randActivities = false;
@@ -66,13 +68,17 @@ public class DrawingSurfaceMainScreen extends Screen {
 	
 	public static String getInput() {
 		if (!randDestination)
-			return searchBar.getText();
+			return s.getText();
 		else 
 			return "RANDOM DEST"; //Choose random destination if this method returns this
 	}
 	
+	public static boolean getMoveOn() {
+		return moveOn;
+	}
+	
 	public void moveOn() {
-		
+		moveOn = true;
 		s.switchScreen(ScreenSwitcher.SCREEN2);
 		s.randD.setEnabled(false);
 		s.randA.setEnabled(false);
@@ -84,7 +90,7 @@ public class DrawingSurfaceMainScreen extends Screen {
 		s.randAll.setVisible(false);
 		s.enter.setVisible(false);
 		searchBar.setVisible(false);
-		
+		s.setText(searchBar.getText());
 	}
 
 }
