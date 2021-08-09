@@ -103,7 +103,7 @@ public class NLP_NER {
 	public static String getHotelLink(String destination) {
         String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
         destination.replace(" ", "+");
-        String searchTerm = "hotels+at+" + destination;
+        String searchTerm = "hotels+at+" + destination.replace(" ", "");
         String hUrl = GOOGLE_SEARCH_URL + searchTerm;
         System.out.println(hUrl);
         return hUrl;
