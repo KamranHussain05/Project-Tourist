@@ -1,20 +1,13 @@
 package pt;
 
 import edu.stanford.nlp.pipeline.*;
-import java.util.Dictionary;
-
 import java.util.Hashtable;
 import java.util.Properties;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class NLP_NER {
 
 	private static String dest;
-	private String act1;
-	private String act2;
-	private String act3;
-	private String act4;
 	private static String userInput;
 	private static String fLink;
 	private static Boolean isRunning = true;
@@ -97,24 +90,24 @@ public class NLP_NER {
 		System.out.println(fLink);
 		return fLink;
 	}
-	
+
 	public static String getHotelLink(String destination) {
-        String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
-        destination.replace(" ", "+");
-        String searchTerm = "hotels+at+" + destination.replace(" ", "");
-        hotel = GOOGLE_SEARCH_URL + searchTerm;
-        System.out.println(hotel);
-        return hotel;
-    }
-	
+		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
+		destination.replace(" ", "+");
+		String searchTerm = "hotels+at+" + destination.replace(" ", "");
+		hotel = GOOGLE_SEARCH_URL + searchTerm;
+		System.out.println(hotel);
+		return hotel;
+	}
+
 	public static String getActivitiesLink(String destination) {
-        String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
-        destination.replace(" ", "+");
-        String searchTerm = "top+sights+in+" + destination.replace(" ", "");
-        activity = GOOGLE_SEARCH_URL + searchTerm;
-        System.out.println(activity);
-        return activity;
-    }
+		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
+		destination.replace(" ", "+");
+		String searchTerm = "top+sights+in+" + destination.replace(" ", "");
+		activity = GOOGLE_SEARCH_URL + searchTerm;
+		System.out.println(activity);
+		return activity;
+	}
 
 	public static String randomLocation() {
 		System.out.println("Randomizing location");

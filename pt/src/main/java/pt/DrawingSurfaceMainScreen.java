@@ -6,31 +6,30 @@ import g4p_controls.*;
 import processing.core.PImage;
 
 public class DrawingSurfaceMainScreen extends Screen {
-	
+
 	private static boolean randDestination;
 	private boolean randActivities;
 	private static GTextField searchBar;
 	private static DrawingSurface s;
 	private PImage Logo;
 	private static boolean moveOn;
-	
+
 	public DrawingSurfaceMainScreen(DrawingSurface s) {
 		super(s.width, s.height);
-		this.s = s;
+		DrawingSurfaceMainScreen.s = s;
 	}
-	
+
 	public void setup() {
 		moveOn = false;
-		G4P.messagesEnabled(false); //Removes suggestions in console
+		G4P.messagesEnabled(false); // Removes suggestions in console
 		randDestination = false;
 		randActivities = false;
 		Logo = s.loadImage("res/Logo.png");
-		
-		searchBar = new GTextField(s, (float)400, (float)280, (float)466, (float)30);
+
+		searchBar = new GTextField(s, (float) 400, (float) 280, (float) 466, (float) 30);
 		searchBar.setFont(new Font("Sans_Serif", Font.PLAIN, 20));
 		searchBar.setPromptText("Enter an activity or interest, and a destination");
 	}
-	
 
 	public void draw() {
 		s.background(195, 225, 210);
@@ -45,38 +44,38 @@ public class DrawingSurfaceMainScreen extends Screen {
 		s.enter.setEnabled(true);
 		s.image(Logo, 486, 100);
 	}
-	
+
 	public boolean getrandD() {
 		return randDestination;
 	}
-	
+
 	public boolean getrandE() {
 		return randActivities;
 	}
-	
+
 	public void setRandD(boolean b) {
 		randDestination = b;
 	}
-	
+
 	public void setRandA(boolean b) {
 		randActivities = b;
 	}
-	
+
 	public GTextField getSearchBar() {
 		return searchBar;
 	}
-	
+
 	public static String getInput() {
 		if (!randDestination)
 			return s.getText();
-		else 
-			return "RANDOM DEST"; //Choose random destination if this method returns this
+		else
+			return "RANDOM DEST"; // Choose random destination if this method returns this
 	}
-	
+
 	public static boolean getMoveOn() {
 		return moveOn;
 	}
-	
+
 	public void moveOn() {
 		moveOn = true;
 		s.switchScreen(ScreenSwitcher.SCREEN2);
