@@ -63,6 +63,7 @@ public class NLP_NER {
 
 	public static String getFlightLink(String destination) {
 		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
+<<<<<<< HEAD
 		destination.replace(" ", "+");
 		String searchTerm = "flights+to+" + destination;
 		fLink = GOOGLE_SEARCH_URL + searchTerm;
@@ -117,5 +118,13 @@ public class NLP_NER {
 		  System.out.println(randDest);
 		  return randDest;
 	  }
+=======
+		destination.replace(" ", "");
+	    String searchTerm = "flights+to+" + destination;
+	    fLink = GOOGLE_SEARCH_URL +searchTerm;
+	    System.out.println(fLink);
+	    return fLink;
+  }
+>>>>>>> parent of 9a80f6d (added hotelLink)
 
 }
