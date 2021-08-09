@@ -18,13 +18,15 @@ public class NLP_NER {
 	private static String userInput;
 	private static String fLink;
 	private static Boolean isRunning = true;
+	private static String hotel;
+	private static String activity;
 
 	public static void checkInput() {
 		if (DrawingSurfaceMainScreen.getMoveOn()) {
 			userInput = DrawingSurfaceMainScreen.getInput();
 		}
 
-		if (userInput == "RANDOM DEST") {
+		if (userInput == "RANDOM DEST" || userInput == "") {
 			randomLocation();
 		} else {
 			main();
@@ -37,7 +39,7 @@ public class NLP_NER {
 
 		// set up pipeline properties
 		Properties props = new Properties();
-		props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner");
+		props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner, regexner");
 		System.out.println("Before setting up pipeline");
 		// set up pipeline
 		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
@@ -70,16 +72,12 @@ public class NLP_NER {
 				getFlightLink(dest);
 			}
 
-			if (em.text() == "null") {
+			if (dest == "null") {
 				randomLocation();
 			}
 		}
 
 		System.out.println("---");
-		System.out.println("tokens and ner tags");
-		String tokensAndNERTags = doc.tokens().stream().map(token -> "(" + token.word() + "," + token.ner() + ")")
-				.collect(Collectors.joining(" "));
-		System.out.println(tokensAndNERTags);
 		isRunning = false;
 	}
 
@@ -104,9 +102,18 @@ public class NLP_NER {
         String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
         destination.replace(" ", "+");
         String searchTerm = "hotels+at+" + destination.replace(" ", "");
-        String hUrl = GOOGLE_SEARCH_URL + searchTerm;
-        System.out.println(hUrl);
-        return hUrl;
+        hotel = GOOGLE_SEARCH_URL + searchTerm;
+        System.out.println(hotel);
+        return hotel;
+    }
+	
+	public static String getActivitiesLink(String destination) {
+        String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
+        destination.replace(" ", "+");
+        String searchTerm = "top+sights+in+" + destination.replace(" ", "");
+        activity = GOOGLE_SEARCH_URL + searchTerm;
+        System.out.println(activity);
+        return activity;
     }
 
 	public static String randomLocation() {
@@ -144,6 +151,8 @@ public class NLP_NER {
 		randDest = cities.get(index);
 
 		getFlightLink(randDest);
+		getHotelLink(randDest);
+		getActivitiesLink(randDest);
 		System.out.println(randDest);
 		return randDest;
 	}

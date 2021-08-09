@@ -119,7 +119,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 			LinkOpener.openLink(NLP_NER.getHotelLink(NLP_NER.getDestination()));
 		}
 		if (button == activities && event == GEvent.CLICKED) {
-			// STUFF
+			LinkOpener.openLink(NLP_NER.getActivitiesLink(NLP_NER.getDestination()));
 		}
 	}
 	
