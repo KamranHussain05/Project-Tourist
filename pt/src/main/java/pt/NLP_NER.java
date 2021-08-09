@@ -41,7 +41,7 @@ public class NLP_NER {
 	    StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 	    // make an example document
 	    CoreDocument doc = new CoreDocument(userInput);
-	    System.out.println("Anazlying");
+	    System.out.println("Analyzing");
 	    // annotate the document
 	    pipeline.annotate(doc);
 	    System.out.println("Writing");
