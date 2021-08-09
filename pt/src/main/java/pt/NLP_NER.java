@@ -2,7 +2,10 @@ package pt;
 
 import edu.stanford.nlp.pipeline.*;
 
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Properties;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class NLP_NER {
@@ -19,7 +22,6 @@ public class NLP_NER {
 	public static void checkInput() {
 		if (DrawingSurfaceMainScreen.getMoveOn()) {
 			userInput = DrawingSurfaceMainScreen.getInput();
-			main();
 		} 
 		
 		if(userInput == "RANDOM DEST") {
@@ -67,7 +69,12 @@ public class NLP_NER {
 	    		System.out.println(dest);
 	    		getFlightLink(dest);
 	    	} 
+	    	
+	    	if(em.text() == "null") {
+	    		randomLocation();
+	    	}
 	    }
+	 
 	    System.out.println("---");
 	    System.out.println("tokens and ner tags");
 	    String tokensAndNERTags = doc.tokens().stream().map(token -> "("+token.word()+","+token.ner()+")").collect(
@@ -94,7 +101,43 @@ public class NLP_NER {
 	  }
 	  
 	  public static String randomLocation() {
-		  return null;
+		  System.out.println("Randomizing location");
+		  String randDest = "";
+		  Hashtable<Integer, String> cities = new Hashtable<Integer, String>();
+		  cities.put(0, "Beijing");
+		  cities.put(1, "Paris");
+		  cities.put(2,  "San Francisco");
+		  cities.put(3,  "Cancun");
+		  cities.put(4,  "London");
+		  cities.put(6,  "New York");
+		  cities.put(7,  "Moscow");
+		  cities.put(8,  "Tokyo");
+		  cities.put(9,  "Dubai");
+		  cities.put(10,  "Singapore");
+		  cities.put(11,  "Barcelona");
+		  cities.put(12,  "Toulouse");
+		  cities.put(13,  "Los Angeles");
+		  cities.put(14,  "Madrid");
+		  cities.put(15,  "Rome");
+		  cities.put(16,  "Chicago");
+		  cities.put(17,  "Toronto");
+		  cities.put(18,  "Abu Dhabi");
+		  cities.put(19,  "St. Petersburg");
+		  cities.put(20,  "Amsterdam");
+		  cities.put(21,  "Dheli");
+		  cities.put(22,  "Prague");
+		  cities.put(23,  "Istanbul");
+		  cities.put(24,  "Seoul");
+		  cities.put(25,  "Sydney");
+		  
+		  
+		  Random rand = new Random();
+		  int index = rand.nextInt(25);
+		  randDest = cities.get(index);
+		  
+		  getFlightLink(randDest);
+		  System.out.println(randDest);
+		  return randDest;
 	  }
 
 }
