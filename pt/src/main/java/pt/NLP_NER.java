@@ -15,6 +15,7 @@ public class NLP_NER {
 	private static String activity;
 
 	public static void checkInput() {
+		isRunning=true;
 		if (DrawingSurfaceMainScreen.getMoveOn()) {
 			userInput = DrawingSurfaceMainScreen.getInput();
 		}
@@ -27,7 +28,6 @@ public class NLP_NER {
 	}
 
 	public static void main() {
-		isRunning = true;
 		System.out.println("Inside NLP Class");
 
 		// set up pipeline properties
