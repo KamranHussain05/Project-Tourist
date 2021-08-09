@@ -18,6 +18,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public GButton randAll;
 	public GButton enter;
 	private String text;
+	public GButton flights;
+	public GButton hotels;
+	public GButton activities;
 	
 	public DrawingSurface() {
 		
@@ -59,10 +62,25 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		randAll.setEnabled(false);
 		randAll.setVisible(false);
 		
-		enter = new GButton(this, 866, 270, 100, 30, "Click to continue or press Enter");
+		enter = new GButton(this, 866, 280, 100, 30, "Click to continue or press Enter");
 		enter.setLocalColorScheme(1);
 		enter.setEnabled(false);
 		enter.setVisible(false);
+		
+		flights = new GButton(this, 85, 350, 342, 100, "Available Flights");
+		flights.setLocalColorScheme(1);
+		flights.setEnabled(false);
+		flights.setVisible(false);
+		
+		hotels = new GButton(this, 512, 350, 342, 100, "Suggested Hotels");
+		hotels.setLocalColorScheme(1);
+		hotels.setEnabled(false);
+		hotels.setVisible(false);
+		
+		activities = new GButton(this, 939, 350, 342, 100, "Suggested Activities");
+		activities.setLocalColorScheme(1);
+		activities.setEnabled(false);
+		activities.setVisible(false);
 	}
 	
 	/**
@@ -81,22 +99,27 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		if (button == randD && event == GEvent.CLICKED) {
 			main.setRandD(true);
-			//System.out.println("randD");
 		}
 		if (button == randA && event == GEvent.CLICKED) {
 			main.setRandA(true);
-			//System.out.println("ranE");
 		}
 		if (button == randAll && event == GEvent.CLICKED) {
 			main.setRandD(true);
 			main.setRandA(true);
-			//System.out.println("ranAll");
 		}
 		if (button == enter && event == GEvent.CLICKED) {
 			main.getSearchBar().setFocus(false);
 			main.moveOn();
 			NLP_NER.checkInput();
-			
+		}
+		if (button == flights && event == GEvent.CLICKED) {
+			LinkOpener.openLink(NLP_NER.getFlightLink(NLP_NER.getDestination()));
+		}
+		if (button == hotels && event == GEvent.CLICKED) {
+			LinkOpener.openLink(NLP_NER.getHotelLink(NLP_NER.getDestination()));
+		}
+		if (button == activities && event == GEvent.CLICKED) {
+			// STUFF
 		}
 	}
 	
@@ -117,10 +140,12 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	}
 	
 	public void keyPressed() {
-		if (key == ENTER || key == RETURN) { //Will exit search bar if ENTER or RETURN is pressed
-			main.getSearchBar().setFocus(false);
-			main.moveOn();
-			NLP_NER.checkInput();
+		if (activeScreen.equals(screens.get(0))) {
+			if (key == ENTER || key == RETURN) { //Will exit search bar if ENTER or RETURN is pressed
+				main.getSearchBar().setFocus(false);
+				main.moveOn();
+				NLP_NER.checkInput();
+			}
 		}
 	}
 	

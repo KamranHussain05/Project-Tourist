@@ -20,8 +20,12 @@ public class DrawingSurfaceEndScreen extends Screen {
 		s.fill(0, 0, 0);
 		s.textSize(28);
 		s.text("Your Destination is: " + NLP_NER.getDestination(), 470, 300);
-		s.textSize(24);
-		s.text("Activities: Hollywood, Universal Studios, Lakers Game", 365, 350);
+		s.flights.setVisible(true);
+		s.hotels.setVisible(true);
+		s.activities.setVisible(true);
+		s.flights.setEnabled(true);
+		s.hotels.setEnabled(true);
+		s.activities.setEnabled(true);
 	}
 
 }

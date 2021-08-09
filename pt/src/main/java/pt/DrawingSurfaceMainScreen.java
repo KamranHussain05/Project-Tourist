@@ -26,7 +26,7 @@ public class DrawingSurfaceMainScreen extends Screen {
 		randActivities = false;
 		Logo = s.loadImage("res/Logo.png");
 		
-		searchBar = new GTextField(s, (float)400, (float)270, (float)466, (float)30);
+		searchBar = new GTextField(s, (float)400, (float)280, (float)466, (float)30);
 		searchBar.setFont(new Font("Sans_Serif", Font.PLAIN, 20));
 		searchBar.setPromptText("Enter an activity or interest, and a destination");
 	}
