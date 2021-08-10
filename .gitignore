@@ -22,3 +22,11 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /bin/
+pt/.idea/compiler.xml
+pt/.idea/jarRepositories.xml
+pt/.idea/libraries/G4P.xml
+pt/.idea/libraries/processing_core.xml
+pt/.idea/libraries/slf4j_nop_1_7_0.xml
+pt/.idea/misc.xml
+pt/.idea/workspace.xml
+pt/pom.xml

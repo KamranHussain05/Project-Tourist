@@ -3,8 +3,20 @@
   <groupId>com.project-tourist</groupId>
   <artifactId>pt</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
-  <dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>7</source>
+					<target>7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
   		<dependency>
   			<groupId>edu.stanford.nlp</groupId>
   			<artifactId>stanford-corenlp</artifactId>
