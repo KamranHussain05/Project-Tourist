@@ -38,7 +38,7 @@ public class NLP_NER {
 		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 		// make an example document
 		CoreDocument doc = new CoreDocument(userInput);
-		System.out.println("Analyzing");
+		System.out.println("Analyzing Text");
 		// annotate the document
 		pipeline.annotate(doc);
 		System.out.println("Writing");
@@ -65,9 +65,10 @@ public class NLP_NER {
 				getFlightLink(dest);
 			}
 
-			if (dest == "null") {
-				randomLocation();
-			}
+		}
+
+		if(doc.entityMentions() == null) {
+			randomLocation();
 		}
 
 		System.out.println("---");

@@ -20,7 +20,14 @@ public class DrawingSurfaceEndScreen extends Screen {
 		s.image(s.loadImage("res/Logo.png"), 486, 100);
 		s.fill(0, 0, 0);
 		s.textSize(28);
-		s.text("Your Destination is: " + NLP_NER.getDestination(), 470, 300);
+		try {
+			s.text("Your Destination is: " + NLP_NER.getDestination(), 470, 300);
+			System.out.println("Tried getting destination");
+		} catch (NullPointerException e) {
+			//NLP_NER.randomLocation();
+			System.out.println("Caught null destination");
+			s.text("Your Destination is: " + NLP_NER.randomLocation(), 470, 300);
+		}
 		s.flights.setVisible(true);
 		s.hotels.setVisible(true);
 		s.activities.setVisible(true);
