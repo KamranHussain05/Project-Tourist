@@ -37,5 +37,6 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="lib/G4P.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/processing_core.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-nop-1.7.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
