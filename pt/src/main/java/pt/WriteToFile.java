@@ -12,7 +12,7 @@ public class WriteToFile {
 
 	public void fileWriting() {
 		try {
-			PrintWriter writer = new PrintWriter("res/data.txt", "UTF-8");
+			PrintWriter writer = new PrintWriter("res/userdatastorage.txt", "UTF-8");
 			writer.println(text);
 			writer.close();
 		} catch (IOException e) {
