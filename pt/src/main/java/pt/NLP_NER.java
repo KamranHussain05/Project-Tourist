@@ -13,6 +13,11 @@ public class NLP_NER {
 	private static Boolean isRunning = true;
 	private static String hotel;
 	private static String activity;
+	private static WriteToFile w;
+	
+	public NLP_NER() {
+		
+	}
 
 	public static void checkInput() {
 		isRunning=true;
@@ -62,6 +67,7 @@ public class NLP_NER {
 			if (em.entityType() == "STATE_OR_PROVINCE") {
 				dest = em.text();
 				System.out.println(dest);
+				
 				getFlightLink(dest);
 			}
 
@@ -81,6 +87,7 @@ public class NLP_NER {
 
 	public static String getDestination() {
 		String s = dest;
+		w.WriteToFile(s);
 		return s;
 	}
 

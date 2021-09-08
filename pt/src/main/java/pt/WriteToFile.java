@@ -6,13 +6,13 @@ import java.io.PrintWriter;
 public class WriteToFile {
 	String text;
 
-	public WriteToFile() {
-		text = "I like Los Angeles CA";// getText();
+	public void WriteToFile(String s) {
+		text = s;// getText();
 	}
 
 	public void fileWriting() {
 		try {
-			PrintWriter writer = new PrintWriter("data.txt", "UTF-8");
+			PrintWriter writer = new PrintWriter("userdatastorage.txt", "UTF-8");
 			writer.println(text);
 			writer.close();
 		} catch (IOException e) {
