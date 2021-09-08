@@ -6,8 +6,9 @@ import java.io.PrintWriter;
 public class WriteToFile {
 	String text;
 
-	public void WriteToFile(String s) {
+	public void writeToFile(String s) {
 		text = s;// getText();
+		fileWriting();
 	}
 
 	public void fileWriting() {
