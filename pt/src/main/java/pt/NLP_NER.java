@@ -87,7 +87,7 @@ public class NLP_NER {
 
 	public static String getDestination() {
 		String s = dest;
-		w.WriteToFile(s);
+		w.writeToFile(s);
 		return s;
 	}
 
