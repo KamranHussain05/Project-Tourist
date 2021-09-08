@@ -5,6 +5,11 @@ import java.io.PrintWriter;
 
 public class WriteToFile {
 	String text;
+	PrintWriter writer;
+	
+	public WriteToFile() {
+		
+	}
 
 	public void writeToFile(String s) {
 		text = s;// getText();
@@ -13,7 +18,7 @@ public class WriteToFile {
 
 	public void fileWriting() {
 		try {
-			PrintWriter writer = new PrintWriter("userdatastorage.txt", "UTF-8");
+			writer = new PrintWriter("res/userdatastorage.txt", "UTF-8");
 			writer.println(text);
 			writer.close();
 		} catch (IOException e) {
