@@ -10,7 +10,7 @@ public class MainGuiJFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(MainGuiJFX.class.getResource("home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         primaryStage.setTitle("Project Tourist");
         Image icon = new Image("icon.png");
         primaryStage.getIcons().add(icon);
