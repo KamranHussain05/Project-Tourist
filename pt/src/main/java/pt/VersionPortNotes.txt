@@ -60,7 +60,7 @@ I/O&Storage Files(UNIMPLEMENTED):
 **********************************************
 V2.0
 Java Version: 11
-Maven Version: 3.6.3
+Maven Version: 4.0
 CoreNLP Version: 4.2.2
 SL4J Version: 1.7.12
 G4P Version: 4.3.3
