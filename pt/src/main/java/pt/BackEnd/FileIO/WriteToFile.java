@@ -1,4 +1,4 @@
-package pt;
+package pt.BackEnd.FileIO;
 
 import java.io.IOException;
 import java.io.PrintWriter;

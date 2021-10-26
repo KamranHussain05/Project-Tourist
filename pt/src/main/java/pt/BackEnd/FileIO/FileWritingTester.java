@@ -1,4 +1,4 @@
-package pt;
+package pt.BackEnd.FileIO;
 
 public class FileWritingTester {
 	

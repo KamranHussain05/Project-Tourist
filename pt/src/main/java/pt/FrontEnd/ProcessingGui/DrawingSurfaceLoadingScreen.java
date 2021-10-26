@@ -1,10 +1,11 @@
-package pt;
+package pt.FrontEnd.ProcessingGui;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import g4p_controls.*;
 import processing.core.PImage;
+import pt.BackEnd.NLP.NLP_NER;
 
 public class DrawingSurfaceLoadingScreen extends Screen {
 

@@ -1,4 +1,4 @@
-package pt;
+package pt.BackEnd.NLP;
 
 import java.awt.Desktop;
 import java.io.IOException;

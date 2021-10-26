@@ -1,6 +1,7 @@
-package pt;
+package pt.FrontEnd.ProcessingGui;
 
 import g4p_controls.G4P;
+import pt.BackEnd.NLP.NLP_NER;
 
 public class DrawingSurfaceEndScreen extends Screen {
 

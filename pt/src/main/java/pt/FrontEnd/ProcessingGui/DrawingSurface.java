@@ -1,10 +1,11 @@
-package pt;
+package pt.FrontEnd.ProcessingGui;
 
 import java.util.ArrayList;
 
 import g4p_controls.GButton;
 import g4p_controls.GEvent;
 import processing.core.PApplet;
+import pt.BackEnd.NLP.*;
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 

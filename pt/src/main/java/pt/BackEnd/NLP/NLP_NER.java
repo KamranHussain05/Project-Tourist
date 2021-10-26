@@ -1,6 +1,9 @@
-package pt;
+package pt.BackEnd.NLP;
 
 import edu.stanford.nlp.pipeline.*;
+import pt.BackEnd.FileIO.*;
+import pt.FrontEnd.ProcessingGui.*;
+
 import java.util.Hashtable;
 import java.util.Properties;
 import java.util.Random;

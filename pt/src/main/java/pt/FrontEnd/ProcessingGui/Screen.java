@@ -1,4 +1,4 @@
-package pt;
+package pt.FrontEnd.ProcessingGui;
 
 public abstract class Screen {
 

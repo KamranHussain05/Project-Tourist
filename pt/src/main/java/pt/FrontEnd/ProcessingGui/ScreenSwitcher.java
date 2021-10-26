@@ -1,4 +1,4 @@
-package pt;
+package pt.FrontEnd.ProcessingGui;
 
 public interface ScreenSwitcher {
 	public static final int SCREEN1 = 0;
