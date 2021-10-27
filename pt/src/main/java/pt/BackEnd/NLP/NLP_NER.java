@@ -19,7 +19,7 @@ public class NLP_NER {
 	private static WriteToFile w;
 	
 	public NLP_NER() {
-		
+		dest = null;
 	}
 
 	public static void checkInput() {
@@ -58,28 +58,28 @@ public class NLP_NER {
 			if (em.entityType() == "CITY") {
 				dest = em.text();
 				System.out.println(dest);
-				getFlightLink(dest);
+				//getFlightLink(dest);
 			}
 
 			if (em.entityType() == "COUNTRY") {
 				dest = em.text();
 				System.out.println(dest);
-				getFlightLink(dest);
+				//getFlightLink(dest);
 			}
 
 			if (em.entityType() == "STATE_OR_PROVINCE") {
 				dest = em.text();
 				System.out.println(dest);
 				
-				getFlightLink(dest);
+				//getFlightLink(dest);
+			} 
+			
+			if(dest == null) {
+				dest = randomLocation();
 			}
 
-		}
-
-		if(doc.entityMentions() == null) {
-			randomLocation();
-		}
-
+		} 
+		System.out.println(dest);
 		System.out.println("---");
 		isRunning = false;
 	}
@@ -89,32 +89,30 @@ public class NLP_NER {
 	}
 
 	public static String getDestination() {
-		String s = dest;
-		w.writeToFile(s);
-		return s;
+		return dest;
 	}
 
-	public static String getFlightLink(String destination) {
+	public static String getFlightLink() {
 		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
-		String searchTerm = "flights+to+" + destination.replace(" ", "");
+		String searchTerm = "flights+to+" + getDestination().replace(" ", "");
 		fLink = GOOGLE_SEARCH_URL + searchTerm;
 		System.out.println(fLink);
 		return fLink;
 	}
 
-	public static String getHotelLink(String destination) {
+	public static String getHotelLink() {
 		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
-		destination.replace(" ", "+");
-		String searchTerm = "hotels+at+" + destination.replace(" ", "");
+		getDestination().replace(" ", "+");
+		String searchTerm = "hotels+at+" + getDestination().replace(" ", "");
 		hotel = GOOGLE_SEARCH_URL + searchTerm;
 		System.out.println(hotel);
 		return hotel;
 	}
 
-	public static String getActivitiesLink(String destination) {
+	public static String getActivitiesLink() {
 		String GOOGLE_SEARCH_URL = "http://www.google.com/search?q=";
-		destination.replace(" ", "+");
-		String searchTerm = "top+sights+in+" + destination.replace(" ", "");
+		getDestination().replace(" ", "+");
+		String searchTerm = "top+sights+in+" + getDestination().replace(" ", "");
 		activity = GOOGLE_SEARCH_URL + searchTerm;
 		System.out.println(activity);
 		return activity;
@@ -153,10 +151,8 @@ public class NLP_NER {
 		Random rand = new Random();
 		int index = rand.nextInt(25);
 		randDest = cities.get(index);
+		dest = randDest;
 
-		getFlightLink(randDest);
-		getHotelLink(randDest);
-		getActivitiesLink(randDest);
 		System.out.println(randDest);
 		return randDest;
 	}

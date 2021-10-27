@@ -114,13 +114,13 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 			NLP_NER.checkInput();
 		}
 		if (button == flights && event == GEvent.CLICKED) {
-			LinkOpener.openLink(NLP_NER.getFlightLink(NLP_NER.getDestination()));
+			LinkOpener.openLink(NLP_NER.getFlightLink());
 		}
 		if (button == hotels && event == GEvent.CLICKED) {
-			LinkOpener.openLink(NLP_NER.getHotelLink(NLP_NER.getDestination()));
+			LinkOpener.openLink(NLP_NER.getHotelLink());
 		}
 		if (button == activities && event == GEvent.CLICKED) {
-			LinkOpener.openLink(NLP_NER.getActivitiesLink(NLP_NER.getDestination()));
+			LinkOpener.openLink(NLP_NER.getActivitiesLink());
 		}
 	}
 
