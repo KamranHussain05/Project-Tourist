@@ -1,0 +1,128 @@
+V1.22
+
+Runnable JAR: ProjectTouristV1.0.jar
+Java Version: 1.8
+Maven Version: 3.6.3
+CoreNLP Version: 4.2.2
+SL4J Version: 1.7.12
+G4P Version: 4.3.3
+Processing Version: 3.5.4
+
+Core Files:
+	Java: 
+		Main.java
+		NLP_NER.java
+		LinkOpener.java
+		pom.xml
+		
+	Images:
+		icon.png
+		frame1.png
+		frame2.png
+		frame3.png
+		frame4.png
+		frame5.png
+		frame6.png
+		frame7.png
+		Logo.png
+		Loading.png
+		
+	Txt Files:
+		userdatastorage.txt
+		
+	Processing Files: 
+		DrawingSurface.java
+		DrawingSurfaceEndScreen.java
+		DrawingSurfaceLoadingScreen.java
+		DrawingSurfaceEndScreen.java
+		DrawingSurfaceMainScreen.java
+		Screen.java
+		Screen3.java
+		ScreenSwitcher.java
+		
+Dependencies/Libraries:
+	processing_core.jar
+	G4P.jar
+	slf4j-nop-1.7.0.jar
+	stanford-corenlp-4.2.2.jar
+		
+Maven Dependencies:
+	stanford-corenlp-4.2.2.jar
+	slf4-api-1.7.12.jar
+	stanford-corenlp-4.2.2-models.jar
+		
+I/O&Storage Files(UNIMPLEMENTED):
+	LinkOpener.java
+	FileWritingTester.java
+	ReadData.java
+	WriteToFile.java
+	
+**********************************************
+V2.0
+Java Version: 11
+Maven Version: 4.0
+CoreNLP Version: 4.2.2
+SL4J Version: 1.7.12
+G4P Version: 4.3.3
+Processing Version: 3.5.4
+
+Core Files:
+	Java: 
+		MainGuiJFX.java
+		Controller.java
+		NLP_NER.java
+		LinkOpener.java
+		pom.xml
+		
+	Images:
+		icon.png
+		Logo.png
+		Loading.png
+		loadingImage.gif
+		ezgif.com-gif-maker.gif
+		output-onlinegiftools.gif
+		
+	Text Files:
+		userdatastorage.txt
+		VersionPortNotes.txt
+		
+		
+	Processing Files (UNUSED): 
+		DrawingSurface.java
+		DrawingSurfaceEndScreen.java
+		DrawingSurfaceLoadingScreen.java
+		DrawingSurfaceEndScreen.java
+		DrawingSurfaceMainScreen.java
+		Screen.java
+		Screen3.java
+		ScreenSwitcher.java
+		
+	JavaFx: 
+		MainGuiJFX.java
+		Controller.java
+		home.fxml
+		loadscreen.fxml
+		endscreen.fxml
+		
+	I/O&Storage Files:
+		LinkOpener.java
+		FileWritingTester.java
+		ReadData.java
+		WriteToFile.java
+		
+Dependencies/Libraries:
+	slf4j-nop-1.7.0.jar
+	stanford-corenlp-4.2.2.jar
+		
+Maven Dependencies:
+	stanford-corenlp-4.2.2.jar
+	slf4-api-1.7.12.jar
+	stanford-corenlp-4.2.2-models.jar
+		
+
+		
+		
+		
+		
+		
+		

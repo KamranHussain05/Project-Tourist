@@ -111,7 +111,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		if (button == enter && event == GEvent.CLICKED) {
 			main.getSearchBar().setFocus(false);
 			main.moveOn();
-			NLP_NER.checkInput();
+			NLP_NER.checkInput(getText());
 		}
 		if (button == flights && event == GEvent.CLICKED) {
 			LinkOpener.openLink(NLP_NER.getFlightLink());
@@ -145,7 +145,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 			if (key == ENTER || key == RETURN) { // Will exit search bar if ENTER or RETURN is pressed
 				main.getSearchBar().setFocus(false);
 				main.moveOn();
-				NLP_NER.checkInput();
+				NLP_NER.checkInput(getText());
 			}
 		}
 	}

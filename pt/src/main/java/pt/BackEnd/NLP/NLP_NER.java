@@ -2,7 +2,6 @@ package pt.BackEnd.NLP;
 
 import edu.stanford.nlp.pipeline.*;
 import pt.BackEnd.FileIO.*;
-import pt.FrontEnd.ProcessingGui.*;
 
 import java.util.Hashtable;
 import java.util.Properties;
@@ -17,16 +16,18 @@ public class NLP_NER {
 	private static String hotel;
 	private static String activity;
 	private static WriteToFile w;
+	private static Properties props;
 	
 	public NLP_NER() {
 		dest = null;
+		// set up pipeline properties
+				props = new Properties();
+				props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner");
 	}
 
-	public static void checkInput() {
+	public static void checkInput(String in) {
 		isRunning=true;
-		if (DrawingSurfaceMainScreen.getMoveOn()) {
-			userInput = DrawingSurfaceMainScreen.getInput();
-		}
+		userInput = in;
 
 		if (userInput == "RANDOM DEST" || userInput == "") {
 			randomLocation();
@@ -38,9 +39,6 @@ public class NLP_NER {
 	public static void main() {
 		System.out.println("Inside NLP Class");
 
-		// set up pipeline properties
-		Properties props = new Properties();
-		props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner, regexner");
 		System.out.println("Before setting up pipeline");
 		// set up pipeline
 		StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
